@@ -1,68 +1,30 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-class Node
-{
-public:
-    int data;
-    Node *next; 
-
-    // constructor
-    Node(int data)
-    {
-        this->data = data;
-        this->next = NULL;
-    }
-};
-
-void insertAtHead(Node *&head, int data)
-{
-    // node created
-    Node *temp = new Node(data);
-    temp->next = head;
-    head = temp;
+int f(int arr[],int n){
+   
+        arr[1]=1;
+        arr[2]=2;
+        if(n<=1) {
+            cout<<"hii"<<endl;
+            return 1;}
+        else if(n==2) {
+             cout<<"hii"<<endl;
+            return 2;}
+        else{
+             cout<<"hii"<<endl;
+            for(int i=3;i<=n;i++){
+                 cout<<"hii"<<endl;
+            arr[i]=2*arr[i-1]+arr[i-2];
+            }
+            return arr[n];
+        }
+        return -1;
 }
-
-void insertAtTail(Node *&tail, int data)
-{   
-    cout<<"HI"<<endl;
-    Node *temp = new Node(data);
-    tail->next = temp;
-    tail = temp;
-}
-
-int countNode(Node* &head){
-    int count=0;
-    Node *temp= head;
-    while(temp!=NULL){
-        temp=temp->next;
-        count++;
-    }
-    return count;
-}
-
-void printNode(Node* &head){
-    Node *temp= head;
-    while(temp != NULL){
-        // cout<<"while is running"<<endl;
-        cout<<temp->data<<" ";
-        temp=temp->next;
-    }
-    cout<<endl;
-    return;
-}
-
-
 
 int main(){
-    Node *temp = new Node(1);
-    Node *head = temp;
-    // Node *temp;
-    
-    insertAtTail(temp,5);
-    cout<<countNode(head);
-    printNode(head);
-    return 0;
+    int n;
+    cin>>n;
+    int arr[n];
+    cout<<f(arr,n);
 }
-

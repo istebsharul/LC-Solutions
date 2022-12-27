@@ -8,7 +8,7 @@ public:
         if (a != "-" && a != "+" && a != "/" && a != "*")
         {
             s1.push(stoi(a));
-        }
+        } 
         else
         {
             long long x = s1.top();
