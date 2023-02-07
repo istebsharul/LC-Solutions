@@ -1,10 +1,12 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-void pr(vector<int> &c){
-    for(auto x: c) cout<<x<<" ";
+void pr(vector<int> &c)
+{
+    for (auto x : c)
+        cout << x << " ";
 }
-int f=0;
+int f = 0;
 
 // int totalFruit(vector<int>& fruits) {
 //         vector <int> a;
@@ -12,7 +14,7 @@ int f=0;
 //         a.push_back(fruits[0]);
 //         int j;
 //         for(j=1;j<fruits.size();j++){
-//             if(fruits[j]==a.back()) a.push_back(fruits[j]); 
+//             if(fruits[j]==a.back()) a.push_back(fruits[j]);
 //             else {
 //                 b.push_back(fruits[j]);
 //                 break;
@@ -43,39 +45,40 @@ int f=0;
 //             cout<<"+ ";
 //             pr(b);
 //             cout<<" = "<<bS;
-//             cout<<endl; 
+//             cout<<endl;
 //         }
 //         return sum;
 //     }
 
- int totalFruit(vector<int>& fruits) {
-      int ans = 0;
-      map<int,int>mp;
-      int i =0 ,j =0,n = fruits.size();
-      while(i<n)
-      {
+int totalFruit(vector<int> &fruits)
+{
+    int ans = 0;
+    map<int, int> mp;
+    int i = 0, j = 0, n = fruits.size();
+    while (i < n)
+    {
         mp[fruits[i]]++;
-      while(mp.size()>2)
-      {
-       if(mp[fruits[j]] == 1)
-       {
-        mp.erase(fruits[j]);
-       }
-        else
+        while (mp.size() > 2)
         {
-        mp[fruits[j]]--;
+            if (mp[fruits[j]] == 1)
+            {
+                mp.erase(fruits[j]);
+            }
+            else
+            {
+                mp[fruits[j]]--;
+            }
+            j++;
         }
-        j++;
-      }
-       ans = max(i-j+1,ans);
-       i++;
+        ans = max(i - j + 1, ans);
+        i++;
     }
     return ans;
-    }
+}
 
-
-int main(){
-    vector<int> fruits={1,0,1,4,1,4,1,2,3};
+int main()
+{
+    vector<int> fruits = {1, 0, 1, 4, 1, 4, 1, 2, 3};
     // vector<int> fruits={6,2,1,1,3,6,6};
-    cout<<totalFruit(fruits);
+    cout << totalFruit(fruits);
 }
